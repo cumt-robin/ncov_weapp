@@ -1,0 +1,7 @@
+<view class="page-navbar {{isIphonex ? 'page-navbar--iphonex' : ''}}">
+  <home-panel id="home" wx:if="{{activeTab == 'home'}}"></home-panel>
+  <rumour-panel wx:elif="{{activeTab == 'rumour'}}"></rumour-panel>
+  <realtime-panel wx:elif="{{activeTab == 'realtime'}}"></realtime-panel>
+  <knowledge-panel wx:else="{{activeTab == 'knowledge'}}"></knowledge-panel>
+  <index-tabbar active="{{activeTab}}" panels="{{panels}}" bind:changeTab="onTabChange"></index-tabbar>
+</view>

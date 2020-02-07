@@ -1,0 +1,12 @@
+.wrapper {
+    padding: 40rpx 32rpx 140rpx;
+}
+
+.panel__wrapper+.panel__wrapper {
+    margin-top: 32rpx;
+}
+
+.panel__content {
+    padding: 32rpx 24rpx;
+    font-size: 14px;
+}

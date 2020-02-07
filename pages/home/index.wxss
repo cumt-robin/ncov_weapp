@@ -1,0 +1,111 @@
+.home__wrapper {
+    padding-bottom: 100rpx;
+    background-color: #f2f2f2;
+}
+
+.banner {
+    width: 100%;
+    height: 300rpx;
+}
+
+.notice-bar {
+    margin-top: 20rpx;
+}
+
+.stats__list {
+    display: flex;
+    text-align: center;
+}
+
+.stats__item {
+    flex: 1;
+}
+
+.increased {
+    font-size: .8em;
+}
+
+.count {
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.confirmed {
+    color: #f74c31;
+}
+
+.suspected {
+    color: #f78207;
+}
+
+.serious {
+    color: #a25a4e;
+}
+
+.dead {
+    color: #5d7092;
+}
+
+.cured {
+    color: #28b7a3;
+}
+
+.status {
+    display: block;
+    color: #333;
+}
+
+.map-pic {
+    width: 100%;
+}
+
+.daily-swiper {
+    height: 420rpx;
+}
+
+.daily-img {
+    width: 100%;
+}
+
+.column-title {
+    margin: 20rpx;
+    padding-left: 20rpx;
+    border-left: 4px solid #07c160;
+}
+
+.column-title.txt {
+    font-size: 2em;
+}
+
+.china-data__wrapper--loading {
+    min-height: 1000rpx;
+}
+
+.tips {
+    display: block;
+    margin-bottom: 20rpx;
+    font-size: 12px;
+    color: #666;
+    padding: 0 20rpx;
+}
+
+.btn-back {
+    margin: 0 0 20rpx 20rpx;
+    padding: 8rpx 20rpx;
+    width: auto;
+    background-color: #1989fa;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.2em;
+    color: #fff;
+}
+
+.ellipsis {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+    color: #333;
+}

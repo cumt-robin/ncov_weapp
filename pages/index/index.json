@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "van-toast": "@vant/weapp/toast/index",
+    "index-tabbar": "/components/index-tabbar/index",
+    "home-panel": "../home/index",
+    "rumour-panel": "../rumour/index",
+    "realtime-panel": "../realtime/index",
+    "knowledge-panel": "../knowledge/index"
+  }
+}

@@ -1,0 +1,27 @@
+<view class="wrapper">
+    <view class="tips__wrapper">
+        <text class="tips">温馨提示：小程序无法打开网页，请复制链接后使用浏览器访问相关内容！</text>
+    </view>
+    <view
+        wx:for="{{wikiList}}"
+        wx:key="id"
+        class="panel__wrapper"
+        data-linkurl="{{item.linkUrl}}"
+        bind:tap="copy"
+    >
+        <van-panel
+            title="{{item.title}}"
+            status="复制链接"
+            header-class="panel__header"
+        >
+            <image
+                wx:if="{{item.imgUrl}}"
+                class="poster"
+                lazy-load
+                mode="aspectFill"
+                src="{{item.imgUrl}}"
+            ></image>
+            <view class="panel__content">{{item.description}}</view>
+        </van-panel>
+    </view>
+</view>

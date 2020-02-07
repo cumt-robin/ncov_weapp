@@ -1,0 +1,16 @@
+<view class="wrapper">
+    <view
+        wx:for="{{rumourList}}"
+        wx:key="id"
+        class="panel__wrapper"
+    >
+        <van-panel
+            title="{{item.title}}"
+            desc="{{item.mainSummary}}"
+            status="{{item.status}}"
+            header-class="panel__header"
+        >
+            <view class="panel__content">{{item.body}}</view>
+        </van-panel>
+    </view>
+</view>

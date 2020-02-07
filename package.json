@@ -1,0 +1,26 @@
+{
+  "name": "wuhanjiayou",
+  "version": "1.0.0",
+  "description": "wuhan jiayou",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "wuhan"
+  ],
+  "author": "cumt-robin",
+  "license": "MIT",
+  "dependencies": {
+    "@vant/weapp": "^1.0.4",
+    "weapp-utils": "^1.0.3"
+  },
+  "devDependencies": {
+    "cz-conventional-changelog": "^3.1.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

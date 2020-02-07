@@ -1,0 +1,3 @@
+<view class='bottom-tips-wrap {{customClass}}' style="padding-top:{{top}};padding-bottom:{{bottom}};">
+  <text class="tips {{line? 'tips--line' : ''}}" style="{{fontSize ? 'font-size:' + fontSize + ';' : ''}}">{{content}}</text>
+</view>

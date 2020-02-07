@@ -1,0 +1,165 @@
+<view class="home__wrapper">
+  <view>
+    <image
+      class="banner"
+      lazy-load
+      mode="aspectFill"
+      src="../../assets/img/banner.png">
+    </image>
+  </view>
+  <van-notice-bar
+    custom-class="notice-bar"
+    speed="30"
+    backgroundColor="#fff"
+    left-icon="volume-o"
+    text="武汉加油！本应用内数据源于第三方统计，为减少第三方接口压力，每15分钟进行一次数据采集和更新！"
+  />
+  <view wx:if="{{isLoading}}">
+    <van-skeleton title row="3" />
+  </view>
+  <view wx:else>
+    <van-cell>
+      <view class="stats__list">
+        <view class="stats__item confirmed">
+          <text class="count">{{stats.confirmedCount}}</text>
+          <text class="status">确诊</text>
+          <text class="increased">{{confirmIncreased}}</text>
+        </view>
+        <view class="stats__item suspected">
+          <text class="count">{{stats.suspectedCount}}</text>
+          <text class="status">疑似</text>
+          <text class="increased">{{suspectedIncreased}}</text>
+        </view>
+        <view class="stats__item serious">
+          <text class="count">{{stats.seriousCount}}</text>
+          <text class="status">严重</text>
+          <text class="increased">{{seriousIncreased}}</text>
+        </view>
+        <view class="stats__item dead">
+          <text class="count">{{stats.deadCount}}</text>
+          <text class="status">死亡</text>
+          <text class="increased">{{deadIncreased}}</text>
+        </view>
+        <view class="stats__item cured">
+          <text class="count">{{stats.curedCount}}</text>
+          <text class="status">治愈</text>
+          <text class="increased">{{curedIncreased}}</text>
+        </view>
+      </view>
+    </van-cell>
+
+    <view class="column-title">
+      <text class="txt">疫情小知识</text>
+    </view>
+
+    <van-cell title="小知识1" icon="info-o" label="{{stats.note1}}" />
+    <van-cell title="小知识2" icon="info-o" label="{{stats.note2}}" />
+    <van-cell title="小知识3" icon="info-o" label="{{stats.note3}}" />
+    <van-cell title="小知识4" icon="info-o" label="{{stats.remark1}}" />
+    <van-cell title="小知识5" icon="info-o" label="{{stats.remark2}}" />
+    <van-cell title="小知识6" icon="info-o" label="{{stats.remark3}}" />
+
+    <view class="column-title">
+      <text class="txt">疫情地图</text>
+    </view>
+
+    <image class="map-pic" mode="widthFix" lazy-load src="{{stats.imgUrl}}" />
+
+    <view class="column-title">
+      <text class="txt">疫情趋势</text>
+    </view>
+
+    <swiper
+      class="daily-swiper"
+      indicator-dots
+      autoplay
+      circular="true"
+      interval="{{3000}}">
+      <swiper-item wx:for="{{stats.dailyPics}}" wx:key="index">
+        <image
+          class="daily-img"
+          lazy-load
+          mode="widthFix"
+          src="{{item}}">
+        </image>
+      </swiper-item>
+    </swiper>
+
+    <view class="column-title" id="chinaDataTitle">
+      <text class="txt">国内疫情数据</text>
+    </view>
+
+    <view class="china-data__wrapper {{isLoadingAreaData ? 'china-data__wrapper--loading' : ''}}">
+      <view hidden="{{isLoadingAreaData}}">
+        <view wx:if="{{!isShowCity}}">
+          <text class="tips">提示：点击某个省份可以查看详细数据</text>
+          <van-cell-group>
+            <van-cell>
+              <van-grid>
+                <van-grid-item text="地区" />
+                <van-grid-item text="确诊" />
+                <van-grid-item text="死亡" />
+                <van-grid-item text="治愈" />
+                <view wx:for="{{provinceStats}}" wx:key="id" data-keyword="{{item.provinceShortName}}" bind:tap="onTapProvince">
+                  <van-grid-item use-slot>
+                    <text class="ellipsis">{{item.provinceShortName}}</text>
+                  </van-grid-item>
+                  <van-grid-item text="{{item.confirmedCount}}" />
+                  <van-grid-item text="{{item.deadCount}}" />
+                  <van-grid-item text="{{item.curedCount}}" />
+                </view>
+              </van-grid>
+            </van-cell>
+          </van-cell-group>
+        </view>
+
+        <view wx:else>
+          <button class="btn-back" size="mini" bind:tap="gobackProvince">返回省级数据</button>
+          <van-cell-group>
+            <van-cell>
+              <van-grid>
+                <van-grid-item text="市县" />
+                <van-grid-item text="确诊" />
+                <van-grid-item text="死亡" />
+                <van-grid-item text="治愈" />
+                <view wx:for="{{cityData}}" wx:key="id">
+                  <van-grid-item use-slot>
+                    <text class="ellipsis">{{item.cityName}}</text>
+                  </van-grid-item>
+                  <van-grid-item text="{{item.confirmedCount}}" />
+                  <van-grid-item text="{{item.deadCount}}" />
+                  <van-grid-item text="{{item.curedCount}}" />
+                </view>
+              </van-grid>
+            </van-cell>
+          </van-cell-group>
+        </view>
+      </view>
+    </view>
+
+    <view class="column-title">
+      <text class="txt">海外其他地区疫情数据</text>
+    </view>
+
+    <van-cell-group>
+      <van-cell>
+        <van-grid>
+          <van-grid-item text="地区" />
+          <van-grid-item text="确诊" />
+          <van-grid-item text="死亡" />
+          <van-grid-item text="治愈" />
+          <view wx:for="{{overseaStats}}" wx:key="id">
+            <van-grid-item use-slot>
+              <text class="ellipsis">{{item.provinceName}}</text>
+            </van-grid-item>
+            <van-grid-item text="{{item.confirmedCount}}" />
+            <van-grid-item text="{{item.deadCount}}" />
+            <van-grid-item text="{{item.curedCount}}" />
+          </view>
+        </van-grid>
+      </van-cell>
+    </van-cell-group>
+
+    <van-divider contentPosition="center">技术支持 @Tusi</van-divider>
+  </view>
+</view>
