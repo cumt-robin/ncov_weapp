@@ -17,6 +17,7 @@
             <van-panel
                 title="{{item.title}}"
                 status="复制链接"
+                desc="{{item.publishInfo}}"
                 header-class="panel__header"
             >
                 <view class="panel__content">{{item.summary}}</view>

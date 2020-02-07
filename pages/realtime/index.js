@@ -38,16 +38,22 @@ Component({
         pageSize: this.data.pageSize
       }).then(res => {
         console.log(res)
-        let list = [];
+        const list = res.list.map(item => {
+          return {
+            ...item,
+            publishInfo: this.getRelativeTime(item.pubDate) + ' ' + item.infoSource
+          }
+        })
+        let newList = [];
         if (isLoadMore) {
-          list = this.data.eventList.concat(res.list)
+          newList = this.data.eventList.concat(list)
         } else {
-          list = res.list
+          newList = list
         }
         this.setData({
           isLoading: false,
           total: res.total,
-          eventList: list
+          eventList: newList
         })
       }).catch(fail => {
         this.setData({
@@ -68,6 +74,25 @@ Component({
       loadMoreThrottle(() => {
         this.loadMore()
       })
+    },
+    getRelativeTime(time) {
+      const seconds = (Date.now() - time) / 1000
+      if (seconds < 60) {
+          // 如果小于1分钟
+          return seconds + '秒前'
+      } else if (seconds >= 60 && seconds < 3600) {
+          // 如果大于1分钟，小于1小时
+          const minutes = Math.floor(seconds / 60)
+          return `${minutes}分钟前`
+      } else if (seconds >= 3600 && seconds < 86400) {
+          // 如果大于1小时，小于1天
+          const hours = Math.floor(seconds / 3600)
+          return `${hours}小时前`
+      } else if (seconds >= 86400) {
+          // 如果大于1天
+          const days = Math.floor(seconds / 86400)
+          return `${days}天前`
+      }
     }
   }
 })
