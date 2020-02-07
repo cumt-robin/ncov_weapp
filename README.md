@@ -6,8 +6,24 @@
 
 小程序**wuhan速报**二维码如下，扫码可查看实时疫情数据。
 
-![wuhan速报小程序](https://qncdn.wbjiang.cn/武汉速报小程序码.jpg)
+![wuhan速报](https://qncdn.wbjiang.cn/武汉速报小程序码.jpg)
 
 # 数据来源
 
 [后端服务](https://github.com/cumt-robin/wuhan_best_wishes)采用`nodejs`语言开发，提供了很多接口，支持`https`。详情请点击[后端服务](https://github.com/cumt-robin/wuhan_best_wishes)项目链接查看源码和说明。
+
+# 部分界面
+
+![统计数据](https://qncdn.wbjiang.cn/统计数据.jpg)
+
+![疫情地图及趋势](https://qncdn.wbjiang.cn/疫情地图及趋势.jpg)
+
+![国内疫情](https://qncdn.wbjiang.cn/国内疫情.jpg)
+
+![国外疫情](https://qncdn.wbjiang.cn/海外疫情.jpg)
+
+![辟谣](https://qncdn.wbjiang.cn/谣言与防护.jpg)
+
+![事件播报](https://qncdn.wbjiang.cn/事件播报.jpg)
+
+![疾病知识](https://qncdn.wbjiang.cn/疾病知识.jpg)
