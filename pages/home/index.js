@@ -65,8 +65,12 @@ Component({
         isShowCity: false,
         isLoadingAreaData: true
       })
+      wx.showLoading({
+        title: '加载中',
+      })
       clearTimeout(loadingAreaTime)
       loadingAreaTime = setTimeout(() => {
+        wx.hideLoading();
         this.setData({
           isLoadingAreaData: false
         })
