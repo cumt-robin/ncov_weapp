@@ -8,6 +8,22 @@
 
 ![wuhan速报](https://qncdn.wbjiang.cn/武汉速报小程序码.jpg)
 
+# 使用
+
+如果您想试试这个项目，那么需要先进行下面两个步骤
+
+
+1. 安装依赖
+
+```
+npm install
+```
+
+2. 构建npm
+
+在微信开发者工具中构建npm，具体操作指南请参考[npm支持](https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html)
+
+
 # 数据来源
 
 [后端服务](https://github.com/cumt-robin/wuhan_best_wishes)采用`nodejs`语言开发，提供了很多接口，支持`https`。详情请点击[后端服务](https://github.com/cumt-robin/wuhan_best_wishes)项目链接查看源码和说明。
