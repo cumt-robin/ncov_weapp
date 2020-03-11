@@ -23,6 +23,13 @@ npm install
 
 在微信开发者工具中构建npm，具体操作指南请参考[npm支持](https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html)
 
+3. 注意
+
+经测试发现，执行完上述两步后，某些情况微信开发者工具打开项目后仍然会报错，建议根据报错提示，找到相应页面对应的`index.json`文件，注释其中一个`vant`组件，保存下，然后撤销注释，再次保存。
+
+![小程序在开发者工具中的bug](https://qncdn.wbjiang.cn/%E7%96%AB%E6%83%85%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%9C%A8%E5%BC%80%E5%8F%91%E8%80%85%E5%B7%A5%E5%85%B7%E7%9A%84bug.png)
+
+可能会依次报好几个页面的这类错误，每个页面按上述操作执行一次就可以了！
 
 # 数据来源
 
