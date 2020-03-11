@@ -77,7 +77,7 @@ Component({
       }, 300);
     },
     getIncrease(count) {
-      return count > 0 ? ('+' + count) : ('-' + count)
+      return count > 0 ? ('+' + count) : count
     },
     onTapProvince(e) {
       const areaName = e.currentTarget.dataset.keyword;
